@@ -51,10 +51,32 @@
       text-align: center;
     }
 
-    .profile-details p.detail {
+    .profile-details .detail {
       font-size: 16px;
       color: #262626;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .profile-details .detail span {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-details .detail .left {
+      margin-right: 5px;
+    }
+
+    .profile-details .detail .at-symbol {
+      font-weight: bold;
+      color: #0095f6;
+      margin: 0 3px;
+    }
+
+    .profile-details .detail .right {
+      color: #0095f6;
+      font-weight: bold;
     }
 
     .profile-details a {
@@ -87,8 +109,12 @@
     <img src="/profile_pic/graduation.jpg" alt="Yuqi Wang">
     <div class="profile-details">
       <p class="name">Yuqi Wang</p>
-      <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
-      <p class="detail">2024-2029 @ CUHK(SZ)</p>
+      <div class="detail">
+        <span class="left">2024-2029</span><span class="at-symbol">@</span><span class="right">CUHK(SZ)</span>
+      </div>
+      <div class="detail">
+        <span class="left">2020-2023</span><span class="at-symbol">@</span><span class="right">Queens' College, Cambridge</span>
+      </div>
       <div class="profile-cv">
         <p>View My CV:</p>
         <a href="english-cv.html">English</a>
