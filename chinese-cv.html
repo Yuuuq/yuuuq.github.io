@@ -14,26 +14,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      flex-direction: column;
     }
 
-    .pdf-container {
-      width: 100%;
+    .cv-container {
       max-width: 800px;
-      height: 100%;
+      width: 100%;
+      background-color: #fff;
       border: 1px solid #dbdbdb;
       border-radius: 12px;
-      overflow: hidden;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
 
-    .pdf-container iframe {
+    .cv-container img {
       width: 100%;
-      height: 100%;
-      border: none;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
     .back-link {
-      margin-top: 20px;
       font-size: 16px;
     }
 
@@ -49,11 +50,13 @@
   </style>
 </head>
 <body>
-  <div class="pdf-container">
-    <iframe src="/CV/王聿骐CV-2024.5.pdf"></iframe>
-  </div>
   <div class="back-link">
     <a href="index.html">Back to Profile</a>
   </div>
+  <div class="cv-container">
+    <img src="/CV/王聿骐CV-2024.5.jpg" alt="Chinese CV">
+    <!-- Add more images if there are more pages -->
+  </div>
+
 </body>
 </html>
