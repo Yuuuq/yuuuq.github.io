@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuqi Wang - Profile</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fafafa;
+      color: #262626;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 935px;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .container img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-right: 30px;
+      border: 2px solid #dbdbdb;
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-details p {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    .profile-details p:first-of-type {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .profile-details .inline-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-details .inline-text .align-at {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-details .inline-text .date {
+      font-weight: normal;
+      margin-right: 5px;
+      color: #8e8e8e;
+    }
+
+    .profile-details .inline-text .symbol, .profile-details .inline-text .college {
+      font-weight: normal;
+      color: #8e8e8e;
+    }
+
+    .profile-details a {
+      color: #0095f6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .profile-details a:hover {
+      text-decoration: underline;
+    }
+
+    .profile-cv {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-cv a {
+      color: #0095f6;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/path/to/your/profile-picture.jpg" alt="Yuqi Wang">
+    <div class="profile-details">
+      <p>Yuqi Wang</p>
+      <div class="inline-text">
+        <div class="align-at">
+          <p class="date">2020-2023</p>
+          <p class="symbol">@</p>
+          <p class="college">Queens' College, Cambridge</p>
+        </div>
+        <div class="align-at">
+          <p class="date">2024-2029</p>
+          <p class="symbol">@</p>
+          <p class="college">CUHK(SZ)</p>
+        </div>
+      </div>
+      <br>
+      <div class="profile-cv">
+        <p>View My CV:</p>
+        <a href="/pdf/YuqiWangCV-2024.5.pdf">English</a>
+        <a href="/pdf/王聿骐CV-2024.5.pdf">简体中文</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
