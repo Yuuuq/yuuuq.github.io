@@ -27,7 +27,6 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      flex-direction: row;
     }
 
     .container img {
@@ -38,32 +37,17 @@
       border: 2px solid #dbdbdb;
     }
 
-    .profile-details {
-      display: flex;
-      flex-direction: column;
-    }
-
     .profile-details p {
       margin: 0 0 10px;
-      font-size: 14px;
     }
 
-    .profile-details p:first-of-type {
+    .profile-details p.name {
       font-size: 24px;
       font-weight: bold;
+      color: #262626;
     }
 
-    .profile-details .inline-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .profile-details .inline-text .align-at {
-      display: flex;
-      align-items: center;
-    }
-
-    .profile-details .inline-text p {
+    .profile-details p.detail {
       font-size: 14px;
       color: #8e8e8e;
     }
@@ -83,17 +67,12 @@
       display: flex;
       gap: 15px;
       align-items: center;
+      font-size: 14px;
     }
 
     .profile-cv p {
-      font-size: 14px;
+      margin: 0;
       color: #262626;
-    }
-
-    .profile-cv a {
-      color: #0095f6;
-      font-weight: normal;
-      font-size: 14px;
     }
   </style>
 </head>
@@ -101,24 +80,13 @@
   <div class="container">
     <img src="/path/to/your/profile-picture.jpg" alt="Yuqi Wang">
     <div class="profile-details">
-      <p>Yuqi Wang</p>
-      <div class="inline-text">
-        <div class="align-at">
-          <p class="date">2020-2023</p>
-          <p class="symbol"> @</p>
-          <p class="college">Queens' College, Cambridge</p>
-        </div>
-        <div class="align-at">
-          <p class="date">2024-2029</p>
-          <p class="symbol"> @</p>
-          <p class="college">CUHK(SZ)</p>
-        </div>
-      </div>
-      <br>
+      <p class="name">Yuqi Wang</p>
+      <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
+      <p class="detail">2024-2029 @ CUHK(SZ)</p>
       <div class="profile-cv">
         <p>View My CV:</p>
         <a href="/CV/YuqiWangCV-2024.5.pdf">English</a>
-        <a href="CV/王聿骐CV-2024.5.pdf">Chinese</a>
+        <a href="/CV/王聿骐CV-2024.5.pdf">Chinese</a>
       </div>
     </div>
   </div>
