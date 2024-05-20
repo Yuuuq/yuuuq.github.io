@@ -80,6 +80,34 @@
       margin: 0;
       color: #262626;
     }
+
+    /* New styles for icons and images */
+    .icons-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .icons-container img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .pictures-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pictures-container img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #dbdbdb;
+    }
   </style>
 </head>
 <body>
@@ -96,6 +124,22 @@
         <p>/</p>
         <a href="chinese-cv.html">Chinese</a>
       </div>
+    </div>
+
+    <!-- New section for icons -->
+    <div class="icons-container">
+      <img src="path/to/icon1.png" alt="Icon 1">
+      <img src="path/to/icon2.png" alt="Icon 2">
+      <img src="path/to/icon3.png" alt="Icon 3">
+      <img src="path/to/icon4.png" alt="Icon 4">
+    </div>
+
+    <!-- New section for pictures -->
+    <div class="pictures-container">
+      <img src="path/to/picture1.png" alt="Picture 1">
+      <img src="path/to/picture2.png" alt="Picture 2">
+      <img src="path/to/picture3.png" alt="Picture 3">
+      <img src="path/to/picture4.png" alt="Picture 4">
     </div>
   </div>
 </body>
