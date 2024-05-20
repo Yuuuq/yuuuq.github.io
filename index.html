@@ -159,28 +159,28 @@
   <script>
     const pictures = {
       icon1: [
-        'path/to/picture1-1.png',
-        'path/to/picture1-2.png',
-        'path/to/picture1-3.png',
-        'path/to/picture1-4.png'
+        { src: 'path/to/picture1-1.png', link: 'path/to/page1-1.html' },
+        { src: 'path/to/picture1-2.png', link: 'path/to/page1-2.html' },
+        { src: 'path/to/picture1-3.png', link: 'path/to/page1-3.html' },
+        { src: 'path/to/picture1-4.png', link: 'path/to/page1-4.html' }
       ],
       icon2: [
-        'path/to/picture2-1.png',
-        'path/to/picture2-2.png',
-        'path/to/picture2-3.png',
-        'path/to/picture2-4.png'
+        { src: 'path/to/picture2-1.png', link: 'path/to/page2-1.html' },
+        { src: 'path/to/picture2-2.png', link: 'path/to/page2-2.html' },
+        { src: 'path/to/picture2-3.png', link: 'path/to/page2-3.html' },
+        { src: 'path/to/picture2-4.png', link: 'path/to/page2-4.html' }
       ],
       icon3: [
-        'path/to/picture3-1.png',
-        'path/to/picture3-2.png',
-        'path/to/picture3-3.png',
-        'path/to/picture3-4.png'
+        { src: 'path/to/picture3-1.png', link: 'path/to/page3-1.html' },
+        { src: 'path/to/picture3-2.png', link: 'path/to/page3-2.html' },
+        { src: 'path/to/picture3-3.png', link: 'path/to/page3-3.html' },
+        { src: 'path/to/picture3-4.png', link: 'path/to/page3-4.html' }
       ],
       icon4: [
-        'path/to/picture4-1.png',
-        'path/to/picture4-2.png',
-        'path/to/picture4-3.png',
-        'path/to/picture4-4.png'
+        { src: 'path/to/picture4-1.png', link: 'path/to/page4-1.html' },
+        { src: 'path/to/picture4-2.png', link: 'path/to/page4-2.html' },
+        { src: 'path/to/picture4-3.png', link: 'path/to/page4-3.html' },
+        { src: 'path/to/picture4-4.png', link: 'path/to/page4-4.html' }
       ]
     };
 
@@ -188,10 +188,13 @@
       const container = document.getElementById('picturesContainer');
       container.innerHTML = '';
       pictures[icon].forEach(pic => {
+        const a = document.createElement('a');
+        a.href = pic.link; // Use the link from the pictures object
         const img = document.createElement('img');
-        img.src = pic;
+        img.src = pic.src; // Use the src from the pictures object
         img.alt = 'Picture';
-        container.appendChild(img);
+        a.appendChild(img);
+        container.appendChild(a);
       });
     }
 
