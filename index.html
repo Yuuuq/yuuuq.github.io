@@ -34,25 +34,25 @@
 
     .profile-section {
       display: flex;
-      align-items: flex-start;
+      align-items: center; /* Center align items vertically */
       width: 100%;
       margin-bottom: 20px;
       padding-left: 20px;
       padding-top: 20px;
     }
 
-    /* Control the size of the profile picture here */
     .profile-section img {
       border-radius: 50%;
       width: 200px; /* Adjust the width */
       height: 200px; /* Adjust the height */
-      margin-right: 50px; /* Adjust the spacing */
       border: 2px solid #dbdbdb;
+      margin-right: 20px; /* Add space between the image and text */
     }
 
     .profile-details {
       display: flex;
       flex-direction: column;
+      justify-content: center; /* Center the text vertically */
       align-items: flex-start;
     }
 
@@ -94,13 +94,12 @@
       color: #262626;
     }
 
-    /* New styles for icons and images */
     .icons-container {
       display: flex;
       justify-content: space-around;
       width: 100%;
       margin-top: 20px;
-}
+    }
 
     .icons-container span {
       cursor: pointer;
@@ -153,16 +152,13 @@
       </div>
     </div>
 
-    <!-- New section for icons within the container -->
     <div class="icons-container">
-  <span onclick="changePictures('icon1')">Icon 1</span>
-  <span onclick="changePictures('icon2')">Icon 2</span>
-  <span onclick="changePictures('icon3')">Icon 3</span>
-  <span onclick="changePictures('icon4')">Icon 4</span>
+      <span onclick="changePictures('icon1')">Icon 1</span>
+      <span onclick="changePictures('icon2')">Icon 2</span>
+      <span onclick="changePictures('icon3')">Icon 3</span>
+      <span onclick="changePictures('icon4')">Icon 4</span>
     </div>
 
-
-    <!-- New section for pictures within the container -->
     <div class="pictures-container" id="picturesContainer">
       <!-- Pictures will be dynamically added here -->
     </div>
