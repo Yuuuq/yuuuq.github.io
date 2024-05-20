@@ -34,11 +34,11 @@
 
     .profile-section {
       display: flex;
+      flex-direction: column;
       align-items: center;
       width: 100%;
       margin-bottom: 20px;
       padding: 20px;
-      flex-direction: column;
     }
 
     .profile-section img {
@@ -172,10 +172,10 @@
     </div>
 
     <div class="icons-container">
-      <span onclick="changePictures('icon1')">Icon 1</span>
-      <span onclick="changePictures('icon2')">Icon 2</span>
-      <span onclick="changePictures('icon3')">Icon 3</span>
-      <span onclick="changePictures('icon4')">Icon 4</span>
+      <span onclick="changePictures('Moments')">Moments</span>
+      <span onclick="changePictures('Research')">Research</span>
+      <span onclick="changePictures('Teaching')">Teaching</span>
+      <span onclick="changePictures('Others')">Others</span>
     </div>
 
     <div class="pictures-container" id="picturesContainer">
@@ -185,25 +185,25 @@
 
   <script>
     const pictures = {
-      icon1: [
+      Moments: [
         { src: 'path/to/picture1-1.png', link: 'path/to/page1-1.html' },
         { src: 'path/to/picture1-2.png', link: 'path/to/page1-2.html' },
         { src: 'path/to/picture1-3.png', link: 'path/to/page1-3.html' },
         { src: 'path/to/picture1-4.png', link: 'path/to/page1-4.html' }
       ],
-      icon2: [
+      Research: [
         { src: 'path/to/picture2-1.png', link: 'path/to/page2-1.html' },
         { src: 'path/to/picture2-2.png', link: 'path/to/page2-2.html' },
         { src: 'path/to/picture2-3.png', link: 'path/to/page2-3.html' },
         { src: 'path/to/picture2-4.png', link: 'path/to/page2-4.html' }
       ],
-      icon3: [
+      Teaching: [
         { src: 'path/to/picture3-1.png', link: 'path/to/page3-1.html' },
         { src: 'path/to/picture3-2.png', link: 'path/to/page3-2.html' },
         { src: 'path/to/picture3-3.png', link: 'path/to/page3-3.html' },
         { src: 'path/to/picture3-4.png', link: 'path/to/page3-4.html' }
       ],
-      icon4: [
+      Others: [
         { src: 'path/to/picture4-1.png', link: 'path/to/page4-1.html' },
         { src: 'path/to/picture4-2.png', link: 'path/to/page4-2.html' },
         { src: 'path/to/picture4-3.png', link: 'path/to/page4-3.html' },
