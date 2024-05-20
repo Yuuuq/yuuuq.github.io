@@ -100,12 +100,21 @@
       justify-content: space-around;
       width: 100%;
       margin-top: 20px;
+}
+
+    .icons-container span {
+      cursor: pointer;
+      font-size: 16px;
+      color: #262626;
+      font-weight: bold;
+      padding: 10px;
+      border: 2px solid #dbdbdb;
+      border-radius: 8px;
+      text-align: center;
     }
 
-    .icons-container img {
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
+    .icons-container span:hover {
+      background-color: #f0f0f0;
     }
 
     .pictures-container {
@@ -146,11 +155,12 @@
 
     <!-- New section for icons within the container -->
     <div class="icons-container">
-      <img src="path/to/icon1.png" alt="Icon 1" onclick="changePictures('icon1')">
-      <img src="path/to/icon2.png" alt="Icon 2" onclick="changePictures('icon2')">
-      <img src="path/to/icon3.png" alt="Icon 3" onclick="changePictures('icon3')">
-      <img src="path/to/icon4.png" alt="Icon 4" onclick="changePictures('icon4')">
+  <img src="path/to/icon1.png" alt="Icon 1" onclick="changePictures('icon1')">
+  <img src="path/to/icon2.png" alt="Icon 2" onclick="changePictures('icon2')">
+  <img src="path/to/icon3.png" alt="Icon 3" onclick="changePictures('icon3')">
+  <img src="path/to/icon4.png" alt="Icon 4" onclick="changePictures('icon4')">
     </div>
+
 
     <!-- New section for pictures within the container -->
     <div class="pictures-container" id="picturesContainer">
