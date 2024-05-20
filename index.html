@@ -128,3 +128,61 @@
       </div>
     </div>
   </div>
+
+  <!-- New section for icons -->
+  <div class="icons-container">
+    <img src="path/to/icon1.png" alt="Icon 1" onclick="changePictures('icon1')">
+    <img src="path/to/icon2.png" alt="Icon 2" onclick="changePictures('icon2')">
+    <img src="path/to/icon3.png" alt="Icon 3" onclick="changePictures('icon3')">
+    <img src="path/to/icon4.png" alt="Icon 4" onclick="changePictures('icon4')">
+  </div>
+
+  <!-- New section for pictures -->
+  <div class="pictures-container" id="picturesContainer">
+    <!-- Pictures will be dynamically added here -->
+  </div>
+
+  <script>
+    const pictures = {
+      icon1: [
+        'path/to/picture1-1.png',
+        'path/to/picture1-2.png',
+        'path/to/picture1-3.png',
+        'path/to/picture1-4.png'
+      ],
+      icon2: [
+        'path/to/picture2-1.png',
+        'path/to/picture2-2.png',
+        'path/to/picture2-3.png',
+        'path/to/picture2-4.png'
+      ],
+      icon3: [
+        'path/to/picture3-1.png',
+        'path/to/picture3-2.png',
+        'path/to/picture3-3.png',
+        'path/to/picture3-4.png'
+      ],
+      icon4: [
+        'path/to/picture4-1.png',
+        'path/to/picture4-2.png',
+        'path/to/picture4-3.png',
+        'path/to/picture4-4.png'
+      ]
+    };
+
+    function changePictures(icon) {
+      const container = document.getElementById('picturesContainer');
+      container.innerHTML = '';
+      pictures[icon].forEach(pic => {
+        const img = document.createElement('img');
+        img.src = pic;
+        img.alt = 'Picture';
+        container.appendChild(img);
+      });
+    }
+
+    // Default to show pictures for the first icon
+    changePictures('icon1');
+  </script>
+</body>
+</html>
