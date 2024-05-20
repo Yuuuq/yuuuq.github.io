@@ -19,7 +19,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 90%;
       width: 100%;
       background-color: #fff;
       border: 1px solid #dbdbdb;
@@ -34,26 +34,28 @@
 
     .profile-section {
       display: flex;
-      align-items: center; /* Center align items vertically */
+      align-items: center;
       width: 100%;
       margin-bottom: 20px;
-      padding-left: 20px;
-      padding-top: 20px;
+      padding: 20px;
+      flex-direction: column;
     }
 
     .profile-section img {
       border-radius: 50%;
-      width: 200px; /* Adjust the width */
-      height: 200px; /* Adjust the height */
+      width: 100%;
+      max-width: 200px;
+      height: auto;
       border: 2px solid #dbdbdb;
-      margin-right: 60px; /* Add space between the image and text */
+      margin-bottom: 20px;
     }
 
     .profile-details {
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Center the text vertically */
-      align-items: flex-start;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     .profile-details p {
@@ -127,11 +129,28 @@
 
     .pictures-container img {
       flex: 1;
-      max-width: 100px; /* Adjust the max width of the images */
-      height: 100px;
+      max-width: 100px;
+      width: 100%;
+      height: auto;
       object-fit: cover;
       border-radius: 8px;
       border: 2px solid #dbdbdb;
+    }
+
+    @media (min-width: 768px) {
+      .profile-section {
+        flex-direction: row;
+      }
+
+      .profile-section img {
+        margin-bottom: 0;
+        margin-right: 60px;
+      }
+
+      .profile-details {
+        align-items: flex-start;
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -153,10 +172,10 @@
     </div>
 
     <div class="icons-container">
-      <span onclick="changePictures('Moments')">Icon 1</span>
-      <span onclick="changePictures('Research')">Icon 2</span>
-      <span onclick="changePictures('Teaching')">Icon 3</span>
-      <span onclick="changePictures('Others')">Icon 4</span>
+      <span onclick="changePictures('icon1')">Icon 1</span>
+      <span onclick="changePictures('icon2')">Icon 2</span>
+      <span onclick="changePictures('icon3')">Icon 3</span>
+      <span onclick="changePictures('icon4')">Icon 4</span>
     </div>
 
     <div class="pictures-container" id="picturesContainer">
@@ -197,9 +216,9 @@
       container.innerHTML = '';
       pictures[icon].forEach(pic => {
         const a = document.createElement('a');
-        a.href = pic.link; // Use the link from the pictures object
+        a.href = pic.link;
         const img = document.createElement('img');
-        img.src = pic.src; // Use the src from the pictures object
+        img.src = pic.src;
         img.alt = 'Picture';
         a.appendChild(img);
         container.appendChild(a);
