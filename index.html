@@ -27,15 +27,24 @@
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       display: flex;
+      flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
     }
 
-    .container img {
+    .profile-section {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* Control the size of the profile picture here */
+    .profile-section img {
       border-radius: 50%;
-      width: 300px;
-      height: 300px;
-      margin-right: 40px;
+      width: 250px; /* Adjust the width */
+      height: 250px; /* Adjust the height */
+      margin-right: 50px; /* Adjust the spacing */
       border: 2px solid #dbdbdb;
     }
 
@@ -94,6 +103,7 @@
     .icons-container img {
       width: 50px;
       height: 50px;
+      cursor: pointer;
     }
 
     .pictures-container {
@@ -114,32 +124,33 @@
 </head>
 <body>
   <div class="container">
-    <img src="/profile_pic/graduation.jpg" alt="Yuqi Wang">
-    <div class="profile-details">
-      <p class="name">Yuqi Wang</p>
-      <p class="detail">2024-2029 @ CUHK(SZ)</p>
-      <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
-
-      <div class="profile-cv">
-        <p>View My CV:</p>
-        <a href="english-cv.html">English</a>
-        <p>/</p>
-        <a href="chinese-cv.html">Chinese</a>
+    <div class="profile-section">
+      <img src="/profile_pic/graduation.jpg" alt="Yuqi Wang">
+      <div class="profile-details">
+        <p class="name">Yuqi Wang</p>
+        <p class="detail">2024-2029 @ CUHK(SZ)</p>
+        <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
+        <div class="profile-cv">
+          <p>View My CV:</p>
+          <a href="english-cv.html">English</a>
+          <p>/</p>
+          <a href="chinese-cv.html">Chinese</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- New section for icons -->
-  <div class="icons-container">
-    <img src="path/to/icon1.png" alt="Icon 1" onclick="changePictures('icon1')">
-    <img src="path/to/icon2.png" alt="Icon 2" onclick="changePictures('icon2')">
-    <img src="path/to/icon3.png" alt="Icon 3" onclick="changePictures('icon3')">
-    <img src="path/to/icon4.png" alt="Icon 4" onclick="changePictures('icon4')">
-  </div>
+    <!-- New section for icons within the container -->
+    <div class="icons-container">
+      <img src="path/to/icon1.png" alt="Icon 1" onclick="changePictures('icon1')">
+      <img src="path/to/icon2.png" alt="Icon 2" onclick="changePictures('icon2')">
+      <img src="path/to/icon3.png" alt="Icon 3" onclick="changePictures('icon3')">
+      <img src="path/to/icon4.png" alt="Icon 4" onclick="changePictures('icon4')">
+    </div>
 
-  <!-- New section for pictures -->
-  <div class="pictures-container" id="picturesContainer">
-    <!-- Pictures will be dynamically added here -->
+    <!-- New section for pictures within the container -->
+    <div class="pictures-container" id="picturesContainer">
+      <!-- Pictures will be dynamically added here -->
+    </div>
   </div>
 
   <script>
