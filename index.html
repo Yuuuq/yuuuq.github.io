@@ -108,13 +108,16 @@
 
     .pictures-container {
       display: flex;
+      justify-content: space-around;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
+      width: 100%;
     }
 
     .pictures-container img {
-      width: 100px;
+      flex: 1;
+      max-width: 100px; /* Adjust the max width of the images */
       height: 100px;
       object-fit: cover;
       border-radius: 8px;
