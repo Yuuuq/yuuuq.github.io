@@ -99,13 +99,19 @@
       color: #262626;
     }
 
+    .separator {
+      width: 100%;
+      height: 1px;
+      background-color: #dbdbdb;
+      margin: 15px 0; /* Adjust as needed for spacing */
+    }
+
     .icons-container {
       display: flex;
       justify-content: space-around;
       width: 100%;
-      margin: 15px 0;
+      margin-bottom: 0;
       padding: 10px 0;
-      border-bottom: 1px solid #dbdbdb;
     }
 
     .icons-container span {
@@ -174,12 +180,16 @@
       </div>
     </div>
 
+    <div class="separator"></div> <!-- Separator between profile and icons -->
+
     <div class="icons-container">
       <span class="selected" onclick="changePictures('Moments', this)">Moments</span>
       <span onclick="changePictures('Research', this)">Research</span>
       <span onclick="changePictures('Teaching', this)">Teaching</span>
       <span onclick="changePictures('Others', this)">Others</span>
     </div>
+
+    <div class="separator"></div> <!-- Separator between icons and pictures -->
 
     <div class="pictures-container" id="picturesContainer">
       <!-- Pictures will be dynamically added here -->
