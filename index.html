@@ -115,18 +115,20 @@
       font-size: 16px;
       color: #262626;
       font-weight: bold;
-      padding: 3px;
+      padding: 4px;
       text-align: center;
     }
 
-    .icons-container span:hover {
-      text-decoration: underline;
+    .icons-container span:hover,
+    .icons-container span.selected { /* Highlight the selected icon */
+      background-color: #f0f0f0;
+      border-radius: 5px;
     }
 
     .pictures-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 3px;
       width: 100%;
     }
 
@@ -177,10 +179,10 @@
     <div class="separator"></div>
 
     <div class="icons-container">
-      <span onclick="changePictures('Moments')">Moments</span>
-      <span onclick="changePictures('Research')">Research</span>
-      <span onclick="changePictures('Teaching')">Teaching</span>
-      <span onclick="changePictures('Others')">Others</span>
+      <span class="selected" onclick="changePictures('Moments', this)">Moments</span>
+      <span onclick="changePictures('Research', this)">Research</span>
+      <span onclick="changePictures('Teaching', this)">Teaching</span>
+      <span onclick="changePictures('Others', this)">Others</span>
     </div>
 
     <div class="separator"></div>
@@ -218,7 +220,7 @@
       ]
     };
 
-    function changePictures(icon) {
+    function changePictures(icon, element) {
       const container = document.getElementById('picturesContainer');
       container.innerHTML = '';
       pictures[icon].forEach(pic => {
@@ -230,10 +232,15 @@
         a.appendChild(img);
         container.appendChild(a);
       });
+
+      // Highlight the selected icon
+      const icons = document.querySelectorAll('.icons-container span');
+      icons.forEach(icon => icon.classList.remove('selected'));
+      element.classList.add('selected');
     }
 
     // Default to show pictures for the first icon
-    changePictures('Moments');
+    changePictures('Moments', document.querySelector('.icons-container span.selected'));
   </script>
 </body>
 </html>
