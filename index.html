@@ -19,7 +19,7 @@
     }
 
     .container {
-      max-width: 600px;
+      max-width: 800px;
       width: 100%;
       background-color: #fff;
       border: 1px solid #dbdbdb;
@@ -116,24 +116,11 @@
       color: #262626;
       font-weight: bold;
       padding: 10px;
-      border: 2px solid #dbdbdb;
-      border-radius: 8px;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      box-sizing: border-box;
-    }
-
-    .icons-container span img {
-      width: 24px;
-      height: 24px;
     }
 
     .icons-container span:hover {
-      background-color: #f0f0f0;
+      text-decoration: underline;
     }
 
     .pictures-container {
@@ -141,17 +128,14 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       width: 100%;
-      justify-items: center;
     }
 
     .pictures-container img {
       width: 100%;
-      max-width: 100px;
       height: auto;
       object-fit: cover;
       border-radius: 8px;
       border: 2px solid #dbdbdb;
-      padding: 5px;
       background-color: #fff;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
@@ -193,19 +177,13 @@
     <div class="separator"></div>
 
     <div class="icons-container">
-      <span onclick="changePictures('Moments')">
-        <img src="path/to/moments-icon.png" alt="Moments">
-      </span>
-      <span onclick="changePictures('Research')">
-        <img src="path/to/research-icon.png" alt="Research">
-      </span>
-      <span onclick="changePictures('Teaching')">
-        <img src="path/to/teaching-icon.png" alt="Teaching">
-      </span>
-      <span onclick="changePictures('Others')">
-        <img src="path/to/others-icon.png" alt="Others">
-      </span>
+      <span onclick="changePictures('Moments')">Moments</span>
+      <span onclick="changePictures('Research')">Research</span>
+      <span onclick="changePictures('Teaching')">Teaching</span>
+      <span onclick="changePictures('Others')">Others</span>
     </div>
+
+    <div class="separator"></div>
 
     <div class="pictures-container" id="picturesContainer">
       <!-- Pictures will be dynamically added here -->
