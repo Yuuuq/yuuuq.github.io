@@ -123,12 +123,13 @@
     .icons-container span.selected { /* Highlight the selected icon */
       background-color: #f0f0f0;
       border-radius: 5px;
+      padding: 4px 8px; /* Expand the padding to fill the space */
     }
 
     .pictures-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
+      gap: 3px; /* Adjust this value to match the spacing */
       width: 100%;
     }
 
@@ -137,9 +138,9 @@
       height: auto;
       object-fit: cover;
       border-radius: 8px;
-      border: 2px solid #dbdbdb;
+      border: none; /* Remove the border */
+      box-shadow: none; /* Remove the shadow */
       background-color: #fff;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
 
     @media (min-width: 768px) {
