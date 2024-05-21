@@ -160,7 +160,7 @@
       cursor: pointer;
     }
 
-    .flip-card:hover .flip-card-inner {
+    .flip-card-inner:hover {
       transform: rotateY(180deg);
     }
 
@@ -192,6 +192,11 @@
       padding: 10px;
       box-sizing: border-box;
       text-align: center;
+      overflow-y: auto;
+    }
+
+    .flip-card-back p {
+      margin: 0;
     }
 
     @media (min-width: 768px) {
@@ -248,11 +253,11 @@
     const content = {
       Moments: [
         { src: '/Moments/1_.jpg', text: 'Joao @ Eagle' },
-        { src: '/Moments/2_.jpg', text: 'Eugene @ Queens'' },
+        { src: '/Moments/2_.jpg', text: 'Eugene @ Queens\'' },
         { src: '/Moments/3_.jpg', text: 'Me @ Senate House' },
         { src: '/Moments/4_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/5_.jpg', text: '@ St. John's' },
-        { src: '/Moments/6_.jpg', text: '@ St. John's' },
+        { src: '/Moments/5_.jpg', text: '@ St. John\'s' },
+        { src: '/Moments/6_.jpg', text: '@ St. John\'s' },
         { src: '/Moments/7_.jpg', text: '@ Newnham' },
         { src: '/Moments/8_.jpg', text: '@ Newnham' },
         { src: '/Moments/9_.jpg', text: '@ Trinity Hall' }
@@ -290,6 +295,9 @@
           flipCard.className = 'flip-card';
           const flipCardInner = document.createElement('div');
           flipCardInner.className = 'flip-card-inner';
+          flipCardInner.addEventListener('click', () => {
+            flipCardInner.style.transform = flipCardInner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+          });
 
           const flipCardFront = document.createElement('div');
           flipCardFront.className = 'flip-card-front';
@@ -300,7 +308,9 @@
 
           const flipCardBack = document.createElement('div');
           flipCardBack.className = 'flip-card-back';
-          flipCardBack.textContent = pic.text;
+          const text = document.createElement('p');
+          text.textContent = pic.text;
+          flipCardBack.appendChild(text);
 
           flipCardInner.appendChild(flipCardFront);
           flipCardInner.appendChild(flipCardBack);
