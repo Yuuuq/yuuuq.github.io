@@ -123,6 +123,18 @@
       border-radius: 5px;
     }
 
+    .content-container {
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .content-container p {
+      font-size: 16px;
+      color: #262626;
+    }
+
     .pictures-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -131,12 +143,55 @@
       box-sizing: border-box;
     }
 
-    .pictures-container img {
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-front {
+      background-color: #fff;
+    }
+
+    .flip-card-front img {
       width: 100%;
       height: auto;
-      object-fit: cover;
       border-radius: 8px;
-      background-color: #fff;
+    }
+
+    .flip-card-back {
+      background-color: #f0f0f0;
+      color: #262626;
+      transform: rotateY(180deg);
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
     }
 
     @media (min-width: 768px) {
@@ -174,10 +229,14 @@
     </div>
 
     <div class="icons-container">
-      <span class="selected" onclick="changePictures('Moments', this)">Moments</span>
-      <span onclick="changePictures('Research', this)">Research</span>
-      <span onclick="changePictures('Teaching', this)">Teaching</span>
-      <span onclick="changePictures('Others', this)">Others</span>
+      <span class="selected" onclick="changeContent('Moments', this)">Moments</span>
+      <span onclick="changeContent('Research', this)">Research</span>
+      <span onclick="changeContent('Teaching', this)">Teaching</span>
+      <span onclick="changeContent('Others', this)">Others</span>
+    </div>
+
+    <div class="content-container" id="contentContainer">
+      <!-- Content will be dynamically added here -->
     </div>
 
     <div class="pictures-container" id="picturesContainer">
@@ -186,48 +245,74 @@
   </div>
 
   <script>
-    const pictures = {
+    const content = {
       Moments: [
-        { src: '/Moments/1_.jpg', link: 'path/to/page1-1.html' },
-        { src: '/Moments/2_.jpg', link: 'path/to/page1-2.html' },
-        { src: '/Moments/3_.jpg', link: 'path/to/page1-3.html' },
-        { src: '/Moments/4_.jpg', link: 'path/to/page1-4.html' },
-        { src: '/Moments/5_.jpg' }, { src: '/Moments/6_.jpg' },
-        { src: '/Moments/7_.jpg' }, { src: '/Moments/8_.jpg' },
-        { src: '/Moments/9_.jpg' }
+        { src: '/Moments/1_.jpg', text: 'Text for picture 1' },
+        { src: '/Moments/2_.jpg', text: 'Text for picture 2' },
+        { src: '/Moments/3_.jpg', text: 'Text for picture 3' },
+        { src: '/Moments/4_.jpg', text: 'Text for picture 4' },
+        { src: '/Moments/5_.jpg', text: 'Text for picture 5' },
+        { src: '/Moments/6_.jpg', text: 'Text for picture 6' },
+        { src: '/Moments/7_.jpg', text: 'Text for picture 7' },
+        { src: '/Moments/8_.jpg', text: 'Text for picture 8' },
+        { src: '/Moments/9_.jpg', text: 'Text for picture 9' }
       ],
-      Research: [
-        { src: 'path/to/picture2-1.png', link: 'path/to/page2-1.html' },
-        { src: 'path/to/picture2-2.png', link: 'path/to/page2-2.html' },
-        { src: 'path/to/picture2-3.png', link: 'path/to/page2-3.html' },
-        { src: 'path/to/picture2-4.png', link: 'path/to/page2-4.html' }
-      ],
-      Teaching: [
-        { src: 'path/to/picture3-1.png', link: 'path/to/page3-1.html' },
-        { src: 'path/to/picture3-2.png', link: 'path/to/page3-2.html' },
-        { src: 'path/to/picture3-3.png', link: 'path/to/page3-3.html' },
-        { src: 'path/to/picture3-4.png', link: 'path/to/page3-4.html' }
-      ],
-      Others: [
-        { src: 'path/to/picture4-1.png', link: 'path/to/page4-1.html' },
-        { src: 'path/to/picture4-2.png', link: 'path/to/page4-2.html' },
-        { src: 'path/to/picture4-3.png', link: 'path/to/page4-3.html' },
-        { src: 'path/to/picture4-4.png', link: 'path/to/page4-4.html' }
-      ]
+      Research: `
+        <p>Research Text 1</p>
+        <p>Research Text 2</p>
+        <p>Research Text 3</p>
+        <p>Research Text 4</p>
+      `,
+      Teaching: `
+        <p>Teaching Text 1</p>
+        <p>Teaching Text 2</p>
+        <p>Teaching Text 3</p>
+        <p>Teaching Text 4</p>
+      `,
+      Others: `
+        <p>Others Text 1</p>
+        <p>Others Text 2</p>
+        <p>Others Text 3</p>
+        <p>Others Text 4</p>
+      `
     };
 
-    function changePictures(icon, element) {
-      const container = document.getElementById('picturesContainer');
-      container.innerHTML = '';
-      pictures[icon].forEach(pic => {
-        const a = document.createElement('a');
-        a.href = pic.link;
-        const img = document.createElement('img');
-        img.src = pic.src;
-        img.alt = 'Picture';
-        a.appendChild(img);
-        container.appendChild(a);
-      });
+    function changeContent(icon, element) {
+      const picturesContainer = document.getElementById('picturesContainer');
+      const contentContainer = document.getElementById('contentContainer');
+
+      if (icon === 'Moments') {
+        picturesContainer.style.display = 'grid';
+        contentContainer.style.display = 'none';
+        picturesContainer.innerHTML = '';
+        content[icon].forEach(pic => {
+          const flipCard = document.createElement('div');
+          flipCard.className = 'flip-card';
+          const flipCardInner = document.createElement('div');
+          flipCardInner.className = 'flip-card-inner';
+
+          const flipCardFront = document.createElement('div');
+          flipCardFront.className = 'flip-card-front';
+          const img = document.createElement('img');
+          img.src = pic.src;
+          img.alt = 'Picture';
+          flipCardFront.appendChild(img);
+
+          const flipCardBack = document.createElement('div');
+          flipCardBack.className = 'flip-card-back';
+          flipCardBack.textContent = pic.text;
+
+          flipCardInner.appendChild(flipCardFront);
+          flipCardInner.appendChild(flipCardBack);
+          flipCard.appendChild(flipCardInner);
+
+          picturesContainer.appendChild(flipCard);
+        });
+      } else {
+        picturesContainer.style.display = 'none';
+        contentContainer.style.display = 'block';
+        contentContainer.innerHTML = content[icon];
+      }
 
       // Highlight the selected icon
       const icons = document.querySelectorAll('.icons-container span');
@@ -235,8 +320,8 @@
       element.classList.add('selected');
     }
 
-    // Default to show pictures for the first icon
-    changePictures('Moments', document.querySelector('.icons-container span.selected'));
+    // Default to show content for the first icon
+    changeContent('Moments', document.querySelector('.icons-container span.selected'));
   </script>
 </body>
 </html>
